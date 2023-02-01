@@ -1,19 +1,19 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:6.7-jdk11'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'gradle --version'
-            }
-        }
+   agent any
+   stages {
+    stage('Checkout') {
+      steps {
+        script {
+           // The below will clone your repo and will be checked out to master branch by default.
+           git credentialsId: 'NOKnowitAll (The Jenkins SSH key)', url: 'git@github.com:NOKnowitAll/jenkins-klavdievo.git'
+           // Do a ls -lart to view all the files are cloned. It will be clonned. This is just for you to be sure about it.
+           sh "ls -lart ./*" 
+           // List all branches in your repo. 
+           sh "git branch -a"
+           // Checkout to a specific branch in your repo.
+           sh "git checkout branchname"
+          }
+       }
     }
+  }
 }
