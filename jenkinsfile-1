@@ -5,7 +5,7 @@ pipeline {
       steps {
         script {
            git branch: 'main', credentialsId: 'bf7dd2d3-118f-4945-beff-8b9c79dbd7ad', url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git'
-           
+           sh "ls -la"
           }
        }
     }
