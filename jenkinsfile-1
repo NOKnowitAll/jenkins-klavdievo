@@ -1,42 +1,44 @@
 pipeline {
     agent any
-    options {
+      options {
         skipStagesAfterUnstable()
     }
-    stage('Clone repository') {
-      steps {
-        script {
-           git branch: 'main', credentialsId: 'bf7dd2d3-118f-4945-beff-8b9c79dbd7ad', url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git'
-           sh "ls -la"
-          }
-       }
-    }
+    stages {
     
-    stage ('image build and Push') {
-      steps {
-        sh '''
-            ssh to your server with IP # I don't know how you ssh to your server just add that command here
-            docker build -t ${image_tag} .
-            docker push ${image_tag
-            docker run -d -p PORT_NUMBER ${image_tag}
-        '''
-      }
-    }
-       
-    stage('Test'){
+      stage('Clone repository') {
+        steps {
+          script {
+            git branch: 'main', credentialsId: 'bf7dd2d3-118f-4945-beff-8b9c79dbd7ad', url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git'
+            sh "ls -la"
+            }
+        }
+     }
+    
+     stage ('image build and Push') {
        steps {
-          echo 'Empty'
-          }
-    }
-       
-    stage('Deploy') {
-       steps {
-          script{
-              echo 'Empty'
-              }
-          }
+         sh '''
+           ssh yaroslav_botsman@192.168.88.102
+           docker build -t ${image_tag} .
+           docker push ${image_tag
+           docker run -d -p PORT_NUMBER ${image_tag}
+         '''
        }
-    }
+     }
+       
+     stage('Test'){
+       steps {
+         echo 'Empty'
+       }
+     }
+       
+     stage('Deploy') {
+       steps {
+         script{
+           echo 'Empty'
+           }
+         }
+      }
+    
     
     
     
