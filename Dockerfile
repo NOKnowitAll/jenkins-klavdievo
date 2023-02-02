@@ -3,7 +3,8 @@ FROM ubuntu:20.04
 # Install.
 RUN \
   apt-get update && \
-  apt-get install –y apache2 && \
+  apt-get full-upgrade && \
+  apt-get install –f apache2 && \
   apt-get install –y apache2-utils && \
   apt-get clean
   # useradd -ms /bin/bash builder
