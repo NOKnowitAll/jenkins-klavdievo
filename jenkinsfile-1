@@ -14,33 +14,16 @@ pipeline {
         }
      }
     
-     stage ('image build and Push') {
-       steps {
-         sh '''
-           ssh yaroslav_botsman@192.168.88.102
-           docker build -t ${image_tag} .
-           docker push ${image_tag
-           docker run -d -p PORT_NUMBER ${image_tag}
-         '''
-       }
-     }
-       
-     stage('Test'){
-       steps {
-         echo 'Empty'
-       }
-     }
-       
-     stage('Deploy') {
-       steps {
-         script{
-           echo 'Empty'
-           }
-         }
-      }
-    
-    
-    
+     stage ('Deploy') {
+    steps{
+        sshagent(credentials : ['52169397-9702-4875-8bf0-43e190a70700']) {
+            sh 'ssh -o StrictHostKeyChecking=no yaroslav_botsman@192.168.88.102 uptime'
+            sh 'ssh -v yaroslav_botsman@192.168.88.102'
+            sh 'scp ./source/filename yaroslav_botsman@192.168.88.102:/remotehost/target'
+        }
+    }
+}
+     
     
     
     
