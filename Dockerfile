@@ -3,7 +3,6 @@ FROM ubuntu:20.04
 # Install.
 RUN \
   apt-get update && \
-  apt-get full-upgrade -y && \
   apt-get install apache2 && \
   apt-get install apache2-utils && \
   apt-get clean
