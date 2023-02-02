@@ -38,7 +38,7 @@ pipeline {
            sh '''
              ssh yaroslav_botsman@192.168.88.102 echo 'Let us go'
              scp ./Dockerfile yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman
-             ssh yaroslav_botsman@192.168.88.102 docker build -t apache_image:$BUILD_ID /home/yaroslav_botsman/Dockerfile
+             ssh yaroslav_botsman@192.168.88.102 docker build -t apache_image:$BUILD_ID .
              '''
           }
        }
