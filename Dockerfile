@@ -1,4 +1,5 @@
-FROM ubuntu:20.04
+# FROM ubuntu:20.04
+FROM node:16-alpine
 
 # Install.
 RUN \
