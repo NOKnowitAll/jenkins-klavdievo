@@ -6,7 +6,7 @@ RUN \
   apt-get -y update && \
   apt-get install apache2 && \
   apt-get install apache2-utils && \
-  apt-get autoremove &&
+  apt-get autoremove
   # useradd -ms /bin/bash builder
 
 # Copy final project files
