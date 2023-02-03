@@ -4,8 +4,8 @@ FROM ubuntu:20.04
 RUN \
   apt-get clean && \
   apt-get -y update && \
-  apt-get install apache2 -y && \
-  apt-get install apache2-utils -y && \
+  apt-get install apache2 && \
+  apt-get install apache2-utils && \
   apt-get autoremove &&
   # useradd -ms /bin/bash builder
 
