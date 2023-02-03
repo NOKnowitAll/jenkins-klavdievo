@@ -2,11 +2,11 @@ FROM ubuntu:20.04
 
 # Install.
 RUN \
-  apt-get update && \
-  apt-get install apache2 && \
-  apt-get install apache2-utils && \
-  apt-get autoremove && \
-  apt-get clean
+  apt-get clean && \
+  apt-get -y update && \
+  apt-get install apache2 -y && \
+  apt-get install apache2-utils -y && \
+  apt-get autoremove &&
   # useradd -ms /bin/bash builder
 
 # Copy final project files
