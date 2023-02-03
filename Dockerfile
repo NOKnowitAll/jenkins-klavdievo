@@ -4,9 +4,9 @@ FROM alpine:latest
 RUN apk add apache2
 WORKDIR /var/www/localhost/htdocs/
 
-COPY fp_klavdievo/ .
-COPY fp_klavdievo/css ./css/
-COPY fp_klavdievo/img ./img/
+ADD fp_klavdievo/ .
+# COPY fp_klavdievo/css/ ./css/
+# COPY fp_klavdievo/img/ ./img/
 
 RUN ls -la ./
 
