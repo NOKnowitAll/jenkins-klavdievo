@@ -1,22 +1,9 @@
-# FROM ubuntu:20.04
 FROM node:16-alpine
 
-# Install.
-RUN \
-  apt-get clean && \
-  apt-get -y update && \
-  apt-get install apache2 && \
-  apt-get install apache2-utils && \
-  apt-get autoremove
-  # useradd -ms /bin/bash builder
+FROM alpine:latest
+RUN apk add apache2
 
-# Copy final project files
-COPY /home/yaroslav_botsman/fp_klavdievo /var/www/html
+COPY /home/yaroslav_botsman/fp_klavdievo /var/www/localhost/htdocs
+CMD ["sh"]
 
-# Apache ports
-EXPOSE 80
-EXPOSE 443
-# EXPOSE 8004
 
-# Start non-daemonized webserver
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
