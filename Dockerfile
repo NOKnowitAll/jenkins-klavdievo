@@ -2,10 +2,11 @@ FROM node:16-alpine
 
 FROM alpine:latest
 RUN apk add apache2
+WORKDIR /var/www/localhost/htdocs/
 
-COPY fp_klavdievo/ /var/www/localhost/htdocs/
+COPY fp_klavdievo/ .
 
-# Add group write access
+RUN ls -la ./*
 
 
 # Apache ports
