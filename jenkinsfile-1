@@ -38,10 +38,9 @@ pipeline {
            sh '''
              ssh yaroslav_botsman@192.168.88.102 'yes | docker system prune --all --volumes'
              scp ./Dockerfile yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman
-             ssh yaroslav_botsman@192.168.88.102 "docker stop apache_image || true"
-	         ssh yaroslav_botsman@192.168.88.102 "docker rm apache_image || true"
-             ssh yaroslav_botsman@192.168.88.102 "docker build -t apache_image:$BUILD_ID ."
-             ssh yaroslav_botsman@192.168.88.102 "docker run -d -t apache_image:$BUILD_ID"
+             ssh yaroslav_botsman@192.168.88.102 "docker rm -f klavdievo"
+	     ssh yaroslav_botsman@192.168.88.102 "docker build -t apache_image:$BUILD_ID ."
+             ssh yaroslav_botsman@192.168.88.102 "docker run -d -t --name klavdievo apache_image:$BUILD_ID"
              '''
           }
        }
