@@ -9,6 +9,6 @@ ADD fp_klavdievo /var/www/html
 EXPOSE 80
 EXPOSE 443
 
-CMD ["sh"]
+CMD [“apache2ctl”, “-D”, “FOREGROUND”]
 
 
