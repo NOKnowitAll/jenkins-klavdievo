@@ -6,7 +6,7 @@ WORKDIR /var/www/localhost/htdocs/
 
 COPY fp_klavdievo/ .
 
-RUN ls -la ./*
+RUN ls -la ./
 
 
 # Apache ports
