@@ -7,6 +7,7 @@ ADD fp_klavdievo/ /var/www/html/
 
 # Add group write access
 RUN \
+  useradd -g www-data ubuntu && \
   chown -R ubuntu:www-data /var/www && \
   find /var/www -type d -exec chmod 2750 {} \+ && \
   find /var/www -type f -exec chmod 640 {} \+ && \
