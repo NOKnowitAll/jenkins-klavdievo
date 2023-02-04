@@ -19,7 +19,7 @@ pipeline {
               ssh -o StrictHostKeyChecking=no yaroslav_botsman@192.168.88.102 uptime
               ssh -v yaroslav_botsman@192.168.88.102
               ssh yaroslav_botsman@192.168.88.102 "mkdir -p /home/yaroslav_botsman/fp_klavdievo"
-              scp ./* yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman/fp_klavdievo
+              scp -r ./* yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman/fp_klavdievo
 	      ssh yaroslav_botsman@192.168.88.102 "tar -cvzf fp_Archive.tar.gz /home/yaroslav_botsman/fp_klavdievo"
 	      ssh yaroslav_botsman@192.168.88.102 "ls -la"
              '''
