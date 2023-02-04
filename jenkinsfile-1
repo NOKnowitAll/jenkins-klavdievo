@@ -20,7 +20,6 @@ pipeline {
               ssh -v yaroslav_botsman@192.168.88.102
               ssh yaroslav_botsman@192.168.88.102 "mkdir -p /home/yaroslav_botsman/fp_klavdievo"
               scp -r ./* yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman/fp_klavdievo
-	      ssh yaroslav_botsman@192.168.88.102 "tar -cvzf fp_Archive.tar.gz /home/yaroslav_botsman/fp_klavdievo"
 	      ssh yaroslav_botsman@192.168.88.102 "ls -la"
              '''
             }
