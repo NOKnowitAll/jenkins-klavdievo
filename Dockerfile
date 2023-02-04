@@ -4,8 +4,8 @@ FROM alpine:latest
 RUN apk add apache2
 WORKDIR /var/www/localhost/htdocs/
 
-#ADD fp_klavdievo .
-ADD fp_Archive.tar.gz  .
+#Copy project's files to remote server
+ADD fp_klavdievo/  .
 
 RUN ls -la ./
 
