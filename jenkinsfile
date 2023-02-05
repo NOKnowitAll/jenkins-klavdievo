@@ -1,8 +1,26 @@
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
     agent any
       options {
         skipStagesAfterUnstable()
     }
+    stage('Checkout SCM') {
+  steps {
+    checkout([
+      $class: 'GitSCM',
+      branches: [[name: 'main']],
+      userRemoteConfigs: [[
+        url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git',
+        credentialsId: 'bf7dd2d3-118f-4945-beff-8b9c79dbd7ad',
+      ]]
+     ])
+   }
+}
+    
+    
+    
+    
     stages {
       stage('Clone git repository') {
         steps {
