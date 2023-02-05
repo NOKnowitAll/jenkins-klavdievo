@@ -17,8 +17,7 @@ pipeline {
      ])
    }
 }
-    
-    
+     
     
     
     stages {
