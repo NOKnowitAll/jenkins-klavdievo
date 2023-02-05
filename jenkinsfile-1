@@ -41,7 +41,7 @@ pipeline {
              scp ./Dockerfile yaroslav_botsman@192.168.88.102:/home/yaroslav_botsman
              ssh yaroslav_botsman@192.168.88.102 "docker rm -f klavdievo"
 	     ssh yaroslav_botsman@192.168.88.102 "docker build -t apache_image:$BUILD_ID ."
-             ssh yaroslav_botsman@192.168.88.102 "docker run -d -p 80:80 -t --name klavdievo apache_image:$BUILD_ID"
+             ssh yaroslav_botsman@192.168.88.102 "docker run -d -p 80:80 -t --restart unless-stopped --name klavdievo apache_image:$BUILD_ID"
              '''
           }
        }
