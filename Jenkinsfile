@@ -1,4 +1,6 @@
-
+pipelineTriggers([
+      [$class: "GitHubPushTrigger"]
+    ])
 
 pipeline {
     agent any
