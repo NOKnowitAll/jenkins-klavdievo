@@ -8,19 +8,19 @@ pipeline {
         skipStagesAfterUnstable()
     }
    stages {
-    stage('Checkout SCM') {
-  steps {
-    checkout([
-      $class: 'GitSCM',
-      branches: [[name: 'main']],
-      userRemoteConfigs: [[
-        url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git',
-        credentialsId: 'GitHub_credentials',
-      ]]
-     ])
-   }
-}     
-      stage('Clone git repository') {
+     stage('Checkout SCM') {
+            steps {
+                checkout([
+                 $class: 'GitSCM',
+                 branches: [[name: 'master']],
+                 userRemoteConfigs: [[
+                    url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git',
+                    credentialsId: 'GitHub_credentials',
+                 ]]
+                ])
+            }
+        }
+     stage('Clone git repository') {
         steps {
           script {
 	    git branch: 'main', credentialsId: 'GitHub_credentials', url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git'
