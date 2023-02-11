@@ -3,16 +3,17 @@ pipelineTriggers([
     ])
 
 pipeline {
-    agent any
-      options {
-        skipStagesAfterUnstable()
+    /* specify nodes for executing */
+    agent {
+        any
     }
+	
    stages {
      stage('Checkout SCM') {
             steps {
                 checkout([
                  $class: 'GitSCM',
-                 branches: [[name: 'master']],
+                 branches: [[name: 'main']],
                  userRemoteConfigs: [[
                     url: 'git@github.com:NOKnowitAll/final-project-klavdievo.git',
                     credentialsId: 'GitHub_credentials',
