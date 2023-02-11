@@ -5,6 +5,7 @@ pipeline {
       options {
         skipStagesAfterUnstable()
     }
+   stages {
     stage('Checkout SCM') {
   steps {
     checkout([
@@ -17,7 +18,6 @@ pipeline {
      ])
    }
 }     
-    stages {
       stage('Clone git repository') {
         steps {
           script {
