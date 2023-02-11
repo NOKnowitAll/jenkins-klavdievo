@@ -7,7 +7,7 @@ WORKDIR /var/www/localhost/htdocs/
 # Transfer files into the Docker image
 ADD fp_klavdievo/  .
 
-RUN ls -la ./
+# RUN ls -la ./
 
 # Apache ports
 EXPOSE 80
