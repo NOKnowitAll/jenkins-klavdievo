@@ -3,9 +3,9 @@ pipelineTriggers([
     ])
 
 pipeline {
-    /* specify nodes for executing */
-    agent {
-        any
+    agent any
+      options {
+        skipStagesAfterUnstable()
     }
 	
    stages {
