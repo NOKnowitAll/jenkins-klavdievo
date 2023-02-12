@@ -1,4 +1,5 @@
 FROM node:16-alpine
+MAINTAINER Yaroslav Botsman
 
 FROM alpine:latest
 RUN apk add apache2
